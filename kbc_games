@@ -1,0 +1,43 @@
+    
+import random
+def kbcgames():
+    a = input("Enter your name:-")
+    if a.startswith("A"):
+        print("You are Chosen for Kbc")
+        print("Lets Start the Question no:- 1")
+        amount = ['1000', '2000', '3000', '4000', '5000', '6000']
+        b = random.choice(amount)
+        print("Your First Question is Worth" , b)
+        print("Your 1st Question is :- Who is Owner of A&A pvt.ltd :- ")
+        print("Options:-")
+        options = ['Aman', 'Akhil', 'Sohan', 'Mohan']
+        print(options)
+        c = random.choice(options)
+        print(c)
+        if c == 'Aman':
+            print(f"You won \n ${b}" )
+            print("2nd Question")
+            print("Your Next Question is :- DOB of AMAN KUMAR SINGH :-")
+            d = [2005,2006,2007,2008]
+            print(d)
+            e = random.choice(d)
+            print(e)
+            f = random.choice(amount)
+            if d == 2005:
+                print(f"You won \n ${f+b}")
+                print("3rd Question")
+                print("Your Next Question is :- father of AMAN KUMAR SINGH:-")
+                g = ['Avanish' , 'Kumar' , 'SINGH', 'Ram']
+                print(g)
+                h = random.choice(g)
+                print(h)
+                i = random.choice(amount)
+                if h == 'Avanish' or h == 'Ram':
+                    print(f"You won \n ${f+b+i}")
+                elif h == 'Kumar' or h == 'SINGH':
+                    print(f'You lost \n ${b+i}')
+            elif d == 2006 or d == 2007 or d == 2008:
+                print(f"You lost \ntotal amounts {b}")
+                
+        elif c == 'Akhil' or c == 'Sohan' or c == 'Mohan':
+            print("Sorry , You are fail")
