@@ -1,0 +1,137 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import time
+
+# Replace 'path/to/chromedriver.exe' with the actual path to chromedriver.exe on your system
+driver_path = "D:/webdriver/chromedriver.exe"
+
+# Create a Chrome browser instance with options
+chrome_options = webdriver.ChromeOptions()
+# Add any additional options if needed
+# chrome_options.add_argument("--headless")  # Example: Run in headless mode
+chrome_options.binary_location = "C:/Program Files/Google/Chrome/Application/chrome.exe"  # Replace with your Chrome binary location
+chrome_options.add_argument(f"webdriver.chrome.driver:{driver_path}")
+
+driver = webdriver.Chrome(options=chrome_options)
+
+# Open the website
+driver.get('https://consensys.io/ethereum-dencun-upgrade')
+
+# Find the email input field by waiting for it to be present
+email_field_id = 'email-54b4d61a-889c-4d37-af33-48e6c27e5d22'
+
+# List of email addresses to insert
+email_addresses = [
+    "sodhiroshan05@gmail.com",
+    "tenalirama1029@gmail.com",
+    "surajnachap2048@gmail.com",
+    "singhkunal01838@gmail.com",
+    "ashokkatarua0917@gmail.com",
+    "jeetanmahanjan@gmail.com",
+    "afingeorge382@gmail.com",
+    "poojaverma28479@gmail.com",
+    "khanadolly695@gmail.com",
+    "kushakkunal@gmail.com",
+    "badhanaa03@gmail.com",
+    "amanksingh3881@gmail.com",
+    "kunalrothak47272@gmail.com",
+    "chiragksingh48284@gmail.com",
+    "a56318938@gmail.com",
+    "adityasingh852654@gmail.com",
+    "sohansingh572849@gmail.com",
+    "rahulsaurav2884@gmail.com",
+    "gauravhusna@gmail.com",
+    "md3872912@gmail.com",
+    "mohammadhusain4882@gmail.com",
+    "bajrangibhaijaan43772@gmail.com",
+    "romanreign4882@gmail.com",
+    "suzuki477202@gmail.com",
+    "zenkoi6882@gmail.com",
+    "tarrakmetha9694@gmail.com",
+    "popatlalbihari@gmail.com",
+    "anitakummar0701@gmail.com",
+    "kumaryara0801@gmail.com",
+    "singhsahab0901@gmail.com",
+    "ssa801599@gmail.com",
+    "sonalikasharawat37272@gmail.com",
+    "fitzfiroz3782@gmail.com",
+    "katariachirag95@gmail.com",
+    "gauravmohan879@gmail.com",
+    "rahul070122@gmail.com",
+    "pyarapyar91@gmail.com",
+    "munnabhai852654@gmail.com",
+    "singhyara75@gmail.com",
+    "shab40213@gmail.com",
+    "modisingh94882@gmail.com",
+    "rohitgard38382@gmail.com",
+    "jeetsingh751262@gmail.com",
+    "snghr99@gmail.com",
+    "vanshmalik462727@gmail.com",
+    "kunalphogat83882@gmail.com",
+    "salmanphogat@gmail.com",
+    "meenadevi472771@gmail.com",
+    "amankumarsingh9810307102@gmail.com",
+    "adityasingh849382@gmail.com",
+    "anitasingh4682@gmail.com",
+    "amanksingh0371@gmail.com",
+    "adityaksingh292939@gmail.com",
+    "kumarsingh3929194@gmail.com",
+    "kumaryara3929194@gmail.com",
+    "amitshah482883@gmail.com",
+    "sahilkumal4882@gmail.com",
+    "ahik280@gmail.com",
+    "hsahi9442@gmail.com",
+    "akhilbhaiyabihaei@gmail.com",
+    "akhileam@gmail.com",
+    "akhilvillan382@gmail.com",
+    "abhishekbachan3882@gmail.com",
+    "bajajowner3881@gmail.com",
+    "ashokbihari3828@gmail.com",
+    "dorosingh706@gmail.com",
+    "rohitkummar0701@gmail.com",
+    "sparkyskull2@gmail.com",
+    "sparkyskull@gmail.com",
+    "solanametaeggclub@gmail.com",
+    "clothat.official@gmail.com",
+    "rohitrajput203534@gmail.com",
+    "rahulsingh457359@gmail.com",
+    "robitsingh73@gmail.com",
+    "avanishsingh987652@gmail.com",
+    "aksingh.8775432@gmail.com",
+    "ak.singh582835@gmail.com",
+    "adityakumarsingh0701@gmail.com"
+]
+
+# Fill in the email addresses
+for email in email_addresses:
+    email_field = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.ID, email_field_id))
+    )
+    
+    email_field.clear()  # Clear the input field
+    email_field.send_keys(email)
+
+    # Wait for a few seconds (adjust the time as needed)
+    time.sleep(2)
+
+    # Perform other actions as needed (e.g., resolving captcha, clicking on signup button)
+
+    # Assuming 'hs-button primary large' is the unique class for the Sign Up button
+    signup_button_class = 'hs-button.primary.large'
+    signup_button = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.CLASS_NAME, signup_button_class))
+    )
+
+    # Click the Sign Up button
+    signup_button.click()
+
+    # Wait for some time (e.g., 5 seconds) to allow the page to load or perform other actions
+    time.sleep(5)
+
+    # Reload the page
+    driver.refresh()
+
+# Close the browser
+driver.quit()
